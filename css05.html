@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 속성(properties) - 배경 관련 속성</title>
+    <style>
+        *{margin:0;padding:0;}
+        html, body {width:100%;}
+        #con {width:1280px;margin:30px auto;}
+
+        #canvas {width:100%;clear:both;}
+        .page {position:relative;width:100vw;height:100vh;box-sizing:border-box;clear:both;}
+        .page_tit {text-align:center;padding-top:40px;}
+
+        /* 먼저 선언된 이미지가 위로 쌓이고, 나중에 선언된 이미지가 뒤에 깔린다.*/
+        #page1 {background-color:rgba(212, 110, 18, 0.75);}
+        #page2 {background-image:url("./images/bg01.webp"), url("./images/bg02.jpg");background-repeat:no-repeat;background-size:300px auto, cover;background-position:center bottom, center center;background-attachment:fixed, scroll;}
+        #page3 .pic {clear:both;width:900px;height:600px;margin:20px auto;border:30px solid rgba(0, 0, 0, 0.35);padding:100px;font-size:100px;line-height:600px;text-align:center;background-image:url("./images/bg01.webp");background-size:100% auto;background-repeat:no-repeat;background-position:0 0;background-origin:border-box;background-clip:content-box;/*background-clip : 배경이미지가 적용되는 범위*//*background-origin : 배경이미지가 어디부터 시작할지*/}
+        #page4 {background:#ff0 url("./images/bg04.jpg") center center/100% auto no-repeat fixed;}
+    </style>
+</head>
+<body>
+    
+    <div id="canvas">
+        <section class="page" id="page1">
+            <h2 class="page_tit">페이지 제목1</h2>
+        </section>
+        <section class="page" id="page2">
+            <h2 class="page_tit">페이지 제목2</h2>
+        </section>
+        <section class="page" id="page3">
+            <h2 class="page_tit">페이지 제목3</h2>
+            <div class="pic">그림</div>
+        </section>
+        <section class="page" id="page4">
+            <h2 class="page_tit">페이지 제목4</h2>
+        </section>
+    </div>
+
+    <div id="con">
+        <h1>배경 관련 속성</h1>
+        <p>background-attachment(배경이미지를 고정할지, 스크롤하듯이 내려갈지 설정), background-blend-mode, background-clip, background-color, background-image, background-origin, background-position, background-repeat, background-size</p>
+        <p>background-color를 제외한 나머지 속성은 배경이미지에 대한 설정 속성임.</p>
+        <p>background : background-color background-image background-position / background-size background-repeat background-origin background-clip background-attachment</p>
+        <p>background 통합 속성은 여러 속성을 한 꺼번에 지정할 수 있지만, 각 세부 속성의 순서를 지키면서 설정해야 함. 특히 위치(position)과 크기(size)는 필수적으로 순서를 지켜야 함.</p>
+        <br><hr><br>
+
+        <h2>배경색(color)</h2>
+        <p>background : rgba(221, 120, 18, 0.8);</p>
+        <p>background-color : rgba(221, 120, 18, 0.8);</p>
+        <br><br>
+        <h3>그라디언트의 경우</h3>
+        <p>background : linear-gradient(방향, 시작색, 종료색); -> background : linear-gradient(135deg, deeppink, deepskyblue)</p>
+        <p>background : radial-gradient(중심색, 중간색1, 중간색2, 중간색3, ..., 마지막색); -> background : radial-gradient(red, orange, gold, green, blue);</p>
+        <br><br>
+        <h3>필터의 경우</h3>
+        <p>filter : url(./images/bg01.webp);</p>
+        <p>filter : blue(5px);</p>
+        <p>filter : contrast(200%); -> 가까운건 밝고, 먼건 어둡게</p>
+        <p>filter : grayscale(80%); -> 100%는 흑백색</p>
+        <p>filter : hue-rotate(90deg);</p>
+        <p>filter : drop-shadow(10px 15px 20px red); -> drop-shadow(x축 y축 블러 그림자색상)</p>
+        <br><hr><br>
+
+        <h2>배경 이미지(image)</h2>
+        <p>background-image : url(파일의 위치와 파일명);</p>
+        <p>background-image : url("./images/김기태.png"); -> 파일명이 한글일 경우나 중간에 띄어쓰기 있을 경우에는 쌍따옴표를 필수로, 아니면 자유</p>
+        <br><hr><br>
+
+        <h2>배경 위치(position)</h2>
+        <p>background-position : 가로위치 세로위치;</p>
+        <p>background-position : 위치; -> 가로위치랑 세로위치가 동일한 경우</p>
+        <p>
+            background-position : left center;<br>
+            키워드일 경우 가로방향은 left/center/right, 세로방향은 top/center/bottom
+        </p>
+        <p>
+            background-position : 10% 100px;<br>
+            특정 숫자가 기입될 경우는 단위를 반드시 명기를 해야함.
+        </p>
+        <p>
+            background-position : -200px -400px;<br>
+            아이콘리스트이미지인 경우 해당 이미지의 이치 값에 따라 다른 아이콘이 나오게 할 수 있음 -> 스플릿이미지
+        </p>
+        <br><hr><br>
+
+        <h2>배경 크기(size)</h2>
+        <p>background-size : auto | length | cover | contain</p>
+        <p>auto : 배경이미지 크기 그대로 표시</p>
+        <p>length : %, px 등의 단위를 숫자와 그 숫자 뒤에 병기해서 사용</p>
+        <p>cover : 가로 폭의 맞추어 높이 부분은 감안하지 않는 방법</p>
+        <p>contain : 해당 콘텐츠의 크기에 맞추어 조절하는 방법 / 높이가 크면 높이에 맞추고, 폭이 크면 폭의 크기에 맞춤</p>
+        <p>background-size : 가로크기 세로크기;</p>
+        <br><hr><br>
+
+        <h2>배경 반복(repeat)</h2>
+        <p>background-repeat : repeat(default) | repeat-x(가로 반복) | repeat-y(세로 반복) | no-repeat</p>
+        <p>해당 요소의 크기가 배경 이미지의 크기보다 클 경우에만 유효하다.</p>
+        <p>repeat : 가로 방향과 세로 방향 모두 적용됨</p>
+        <p>repeat-x : 가로 방향에만 적용됨</p>
+        <p>repeat-y : 세로 방향에만 적용됨</p>
+        <p>no-repeat : 반복하지 않고, 한 번만 출력</p>
+        <br><hr><br>
+
+        <h2>배경 시작점(origin)</h2>
+        <p>background-origin : padding-box | border-box | content-box</p>
+        <p>배경 이미지가 어디부터 시작할지 결정</p>
+        <p>padding-box : padding 부분부터 이미지가 시작됨</p>
+        <p>border-box : border 부분부터 이미지가 시작됨</p>
+        <p>content-box : content 부분부터 이미지가 시작됨</p>
+        <br><hr><br>
+
+        <h2>배경 적용 범위(clip)</h2>
+        <p>background-clip : padding-box | border-box | content-box</p>
+        <p>padding-box : padding 영역까지 이미지가 시작됨</p>
+        <p>border-box : border 영역까지 이미지가 시작됨</p>
+        <p>content-box : content 영역까지 이미지가 시작됨</p>
+        <br><hr><br>
+
+        <h2>배경 이미지 스크롤(attachment)</h2>
+        <p>background-attachment : scroll(default) | fixed | local</p>
+        <p>배경 이미지가 마우스 스크롤시에서 스크롤 유무를 결정</p>
+        <p>scroll  또는 local : 일반 콘텐츠처럼 스크롤 됨</p>
+        <p>fixed : 배경 이미지가 화면에 고정되고, 스크롤 되지 않음</p>
+        <br><hr><br>
+    </div>
+</body>
+</html>
