@@ -15,9 +15,26 @@
 
         /* 먼저 선언된 이미지가 위로 쌓이고, 나중에 선언된 이미지가 뒤에 깔린다.*/
         #page1 {background-color:rgba(212, 110, 18, 0.75);}
+        
         #page2 {background-image:url("./images/bg01.webp"), url("./images/bg02.jpg");background-repeat:no-repeat;background-size:300px auto, cover;background-position:center bottom, center center;background-attachment:fixed, scroll;}
+       
         #page3 .pic {clear:both;width:900px;height:600px;margin:20px auto;border:30px solid rgba(0, 0, 0, 0.35);padding:100px;font-size:100px;line-height:600px;text-align:center;background-image:url("./images/bg01.webp");background-size:100% auto;background-repeat:no-repeat;background-position:0 0;background-origin:border-box;background-clip:content-box;/*background-clip : 배경이미지가 적용되는 범위*//*background-origin : 배경이미지가 어디부터 시작할지*/}
+       
         #page4 {background:#ff0 url("./images/bg04.jpg") center center/100% auto no-repeat fixed;}
+        
+        .page {overflow:hidden;}
+        #page5 {width:100%;height:auto;max-height:100vh;}
+        .vs img {display:block;width:100%;height:auto;}
+        #page5 .vs img {filter:blur(10px);}
+        #page6 .vs img {filter:brightness(50%);}        /* 밝은 날 비슷 : 0% - 빛의 노출 x / 어둠*/
+        #page7 .vs img {
+            /*filter:contrast(50%);*/ /* contrast : 안개 효과 비슷 */
+            /*filter:grayscale(80%);*/ /* grayscale : 회색조 */
+            /*filter:invert(90%);*/ /* invert : 보색을 표현 / 색상반전 */
+            /*filter:hue-rotate(90deg);*/ /* hue-rotate : 현재 색상에서 각도만큼 색상으로 변경 */
+            /*filter:saturate(10%);*/ /* saturate : 색의 양 / 사진의 바랜느낌 효과 */
+            filter:sepia(60%); /* sepia : 오징어 먹물 효과 */
+        }
     </style>
 </head>
 <body>
@@ -35,6 +52,30 @@
         </section>
         <section class="page" id="page4">
             <h2 class="page_tit">페이지 제목4</h2>
+        </section>
+        <section class="page" id="page5">
+            <h2 class="page_tit">페이지 제목5</h2>
+            <figure class="vs">
+                <img src="./images/bg04.jpg" alt="배너1">
+            </figure>
+        </section>
+        <section class="page" id="page6">
+            <h2 class="page_tit">페이지 제목6</h2>
+            <figure class="vs">
+                <img src="./images/bg04.jpg" alt="배너2">
+            </figure>
+        </section>
+        <section class="page" id="page7">
+            <h2 class="page_tit">페이지 제목7</h2>
+            <figure class="vs">
+                <img src="./images/bg04.jpg" alt="배너3">
+            </figure>
+        </section>
+        <section class="page" id="page8">
+            <h2 class="page_tit">페이지 제목8</h2>
+            <figure class="vs">
+                <img src="./images/bg04.jpg" alt="배너4">
+            </figure>
         </section>
     </div>
 
