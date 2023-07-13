@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css 속성(properties) - 기타 속성</title>
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+    <style>
+        #canvas, #con {width:1280px;margin:60px auto;}
+
+        .list li.disc {list-style-type:disc;}
+        .list li.armenian {list-style-type:armenian;}
+        .list li.circle {list-style-type:circle;}
+        .list li.cjk-ideographic {list-style-type:cjk-ideographic;}
+        .list li.decimal {list-style-type:decimal;}
+        .list li.georgian {list-style-type:georgian;}
+        .list li.hebrew {list-style-type:hebrew;}
+        .list li.hiragana {list-style-type:hiragana;}
+        .list li.katakana {list-style-type:katakana;}
+        .list li.lower-alpha {list-style-type:lower-alpha;}
+        .list li.lower-greek {list-style-type:lower-greek;}
+        .list li.lower-latin {list-style-type:lower-latin;}
+        .list li.lower-roman {list-style-type:lower-roman;}
+        .list li.none {list-style-type:none;}
+        .list li.square {list-style-type:square;}
+        .list li.upper-alpha {list-style-type:upper-alpha;}
+        .list li.upper-greek {list-style-type:upper-greek;}
+        .list li.upper-latin {list-style-type:upper-latin;}
+        .list li.upper-roman {list-style-type:upper-roman;}
+        /*.list li.img {list-style-image:url(./images/cursor01.png);}*/
+        .list li.img {list-style-image:url(./images/chunsik.jpeg);}
+
+        .mouse {width:1280px;clear:both;min-height:100vh;}
+        .mouse::after {content:"";clear:both;display:block;}
+        .mouse ul {list-style:none;clear:both;}
+        .mouse li {width:100px;height:100px;margin:15px;border:1px solid #333;float:left;}
+
+        .mouse li.alias {cursor:alias;}
+        .mouse li.all-scroll {cursor:all-scroll;}
+        .mouse li.auto {cursor:auto;}
+        .mouse li.cell {cursor:cell;}
+        .mouse li.col-resize {cursor:col-resize;}
+        .mouse li.context-menu {cursor:context-menu;}
+        .mouse li.copy {cursor:copy;}
+        .mouse li.crosshair {cursor:crosshair;}
+        .mouse li.default {cursor:default;}
+        .mouse li.e-resize {cursor:e-resize;}
+        .mouse li.ew-resize {cursor:ew-resize;}
+        .mouse li.grab {cursor:grab;}
+        .mouse li.grabbing {cursor:grabbing;}
+        .mouse li.help {cursor:help;}
+        .mouse li.move {cursor:move;}
+        .mouse li.n-resize {cursor:n-resize;}
+        .mouse li.no-drop {cursor:no-drop;}
+        .mouse li.none {cursor:none;}
+        .mouse li.not-allowed {cursor:not-allowed;}
+        .mouse li.pointer {cursor:pointer;}
+        .mouse li.progress {cursor:progress;}
+        .mouse li.row-resize {cursor:row-resize;}
+        .mouse li.s-resize {cursor:s-resize;}
+        .mouse li.text {cursor:text;}
+        .mouse li.url {cursor:url(./images/chunsik.cur) 20 30, auto;}
+        .mouse li.w-resize {cursor:w-resize;}
+        .mouse li.wait {cursor:wait;}
+        .mouse li.zoom-in {cursor:zoom-in;}
+        .mouse li.zoom-out {cursor:zoom-out;}
+        /*.mouse li.url2 {cursor:url(http://www.javascriptkit.com/dhtmltutors/mycursor.gif), auto;}*/
+        .mouse li.url2 {cursor:url(./images/cursor.cur) 20 30, auto;}
+
+        .ts {clear:both;width:100%;}
+        .tit-box {width:900px;height:100px;line-height:100px;text-align:center;}
+        .tit-box h2 {font-size:60px;color:deepskyblue;}
+        .ts-tit1 {text-shadow:3px 3px #0c4569, -3px -3px #b4dffa;}
+        .ts-tit2 {text-shadow:-3px -3px #0c4569, 3px 3px #b4dffa;}
+        .tit-box:nth-child(3) {background-color:#fff;}
+        .tit-box .ts-tit3 {color:#000;text-shadow:2px 2px 0px #eee, 4px 4px 0px #000;}
+        .tit-box:nth-child(4) {background-color:#000;}
+        .tit-box .ts-tit4 {color:#fff;text-shadow:0 0 1px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #ff00de, 0 0 60px #ff00de, 0 0 80px #ff00de, 0 0 100px #ff00de, 0 0 110px #ff00de;}
+        .tit-box .ts-tit5 {text-shadow:-1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;color:#fff;}
+        .tit-box:nth-child(6) {background-color:#565656;}
+        .tit-box .ts-tit6 {color:#333;text-shadow:0 1px 0 #777, 0 -1px 0 #000;}
+        .tit-box:nth-child(7) {background-color:navy;}
+        .tit-box .ts-tit7 {font-family:'Staatliches', cursive;color:#f1c164;text-shadow:5px 5px #2d63a7;}
+        .tit-box:nth-child(8) {background-color:navy;}
+        .tit-box .ts-tit8 {font-family:'Staatliches', cursive;color:#f1c164;text-shadow:5px 5px #2d63a7;padding-top:20px;text-decoration:overline;text-decoration-style:wavy;}
+        .tit-box .ts-tit9 {text-shadow:1px 1px 0 #0c4569, 2px 2px 0 #0c4569, 3px 3px 0 #0a3b5a, 4px 4px 0 #0a3b5a, 5px 5px 0 #072a40, 6px 6px 0 #072a40, 7px 7px 0 #03141e, 8px 8px 0 #03141e, 9px 9px 0 #010507, 10px 10px 0 #010507;}
+        .tit-box:nth-child(10) {background-color: #d7ca42;border-radius:10px;;}
+        .tit-box .ts-tit10 {text-shadow:1px 1px 0 #fff, -1px -1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff;color: #ac53c7;font-family: 'VT323', monospace;}
+    </style>
+</head>
+<body>
+
+    <div id="canvas">
+        <articla class="list">
+            <ul>
+                <li class="disc">목록기호1<br>disc</li>
+                <li class="armenian">목록기호2<br>armenian</li>
+                <li class="circle">c목록기호3<br>ircle</li>
+                <li class="cjk-ideographic">목록기호4<br>cjk-ideographic</li>
+                <li class="decimal">목록기호5<br>decimal</li>
+                <li class="georgian">목록기호6<br>georgian</li>
+                <li class="hebrew">목록기호7<br>hebrew</li>
+                <li class="hiragana">목록기호8<br>hiragana</li>
+                <li class="katakana">목록기호9<br>katakana</li>
+                <li class="lower-alpha">목록기호10<br>lower-alpha</li>
+                <li class="lower-greek">목록기호11<br>lower-greek</li>
+                <li class="lower-latin">목록기호12<br>lower-latin</li>
+                <li class="lower-roman">목록기호13<br>lower-roman</li>
+                <li class="none">목록기호14<br>none</li>
+                <li class="square">목록기호15<br>square</li>
+                <li class="upper-alpha">목록기호16<br>upper-alpha</li>
+                <li class="upper-greek">목록기호17<br>upper-greek</li>
+                <li class="upper-latin">목록기호18<br>upper-latin</li>
+                <li class="upper-roman">목록기호19<br>upper-roman</li>
+                <li class="img">목록기호19<br>img</li>
+            </ul>
+        </articla>
+        <article class="mouse">
+            <ul>
+                <li class="alias">모양1</li>
+                <li class="all-scroll">모양2</li>
+                <li class="auto">모양3</li>
+                <li class="cell">모양4</li>
+                <li class="col-resize">모양5</li>
+                <li class="context-menu">모양6</li>
+                <li class="copy">모양7</li>
+                <li class="crosshair">모양8</li>
+                <li class="default">모양9</li>
+                <li class="e-resize">모양10</li>
+                <li class="ew-resize">모양11</li>
+                <li class="grab">모양12</li>
+                <li class="grabbing">모양13</li>
+                <li class="help">모양14</li>
+                <li class="move">모양15</li>
+                <li class="n-resize">모양16</li>
+                <li class="no-drop">모양17</li>
+                <li class="none">모양18</li>
+                <li class="not-allowed">모양19</li>
+                <li class="pointer">모양20</li>
+                <li class="progress">모양21</li>
+                <li class="row-resize">모양22</li>
+                <li class="s-resize">모양23</li>
+                <li class="text">모양24</li>
+                <li class="url">모양25</li>
+                <li class="w-resize">모양26</li>
+                <li class="wait">모양27</li>
+                <li class="zoom-in">모양28</li>
+                <li class="zoom-out">모양29</li>
+                <li class="url2">모양30</li>
+            </ul>
+        </article>
+
+        <div class="post">
+            <p>감사원의 조직·직무범위·감사위원의 자격·감사대상공무원의 범위 기타 필요한 사항은 법률로 정한다. 국회의원은 그 지위를 남용하여 국가·공공단체 또는 기업체와의 계약이나 그 처분에 의하여 재산상의 권리·이익 또는 직위를 취득하거나 타인을 위하여 그 취득을 알선할 수 없다.</p>
+            <p>대통령은 전시·사변 또는 이에 준하는 국가비상사태에 있어서 병력으로써 군사상의 필요에 응하거나 공공의 안녕질서를 유지할 필요가 있을 때에는 법률이 정하는 바에 의하여 계엄을 선포할 수 있다.</p>
+            <p>새로운 회계연도가 개시될 때까지 예산안이 의결되지 못한 때에는 정부는 국회에서 예산안이 의결될 때까지 다음의 목적을 위한 경비는 전년도 예산에 준하여 집행할 수 있다.</p>
+            <p>국민의 자유와 권리는 헌법에 열거되지 아니한 이유로 경시되지 아니한다. 대한민국은 민주공화국이다. 예비비는 총액으로 국회의 의결을 얻어야 한다. 예비비의 지출은 차기국회의 승인을 얻어야 한다.</p>
+            <p>재판의 심리와 판결은 공개한다. 다만, 심리는 국가의 안전보장 또는 안녕질서를 방해하거나 선량한 풍속을 해할 염려가 있을 때에는 법원의 결정으로 공개하지 아니할 수 있다.</p>
+        </div>
+
+        <br><hr><br>
+
+        <article class="ts">
+            <div class="tit-box">
+                <h2 class="ts-tit1">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit2">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit3">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit4">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit5">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit6">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit7">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit8">Lorem Ipsum</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit9">ZIP BONEZOOER</h2>
+            </div>
+            <div class="tit-box">
+                <h2 class="ts-tit10">Lorem Ipsum</h2>
+            </div>
+        </article>
+        <article>
+            div.bs>
+        </article>
+    </div>
+
+    <div id="con">
+
+        <h1>목록 속성</h1>
+        <p>list-style : type position image</p>
+        <p>메뉴나 목록의 기호를 표시하는 속성</p>
+        <br><hr><br>
+
+        <h2>목록 기호</h2>
+        <p>
+            비순서형 = list-style-type : none | disc(채워진 검정 점) | circle(외곽선만 있는 점) | square(정사각형)<br>
+            순서형   = list-style-type : decimal | armenian | georgian | hebrew | hiragana | katakana | lower-alpha |lower-greek | lower-latin | lower-roman | upper-greek | upper-latin | upper-roman | cjk-ideographic<br>
+            <br>
+            ★<a href="https://www.w3schools.com/cssref/playdemo.php?filename=playcss_list-style-type&preval=hiragana-iroha" target="_blank">참조 페이지</a>★
+        </p>
+        <p>li 요소에 표시되는 목록 기호로 부모 요소가 ol인 경우는 숫자가 순서대로 앞에 표기되고, ul인 경우는 disc가 앞에 표기된다.</p>
+        <br><hr><br>
+
+        <h2>목록 기호 위치</h2>
+        <p>list-style-position : inside(padding 영역) | outside(margin 영역)</p>
+        <br><hr><br>
+
+        <h2>목록 이미지</h2>
+        <p>list-style-image : none | url(파일 경로 및 이름)</p>
+        <p>목록 기호에 들어갈 자리에 이미지가 표시되며, 파일경로나 이름은 ""(큰따옴표), ''(작은따옴표)로 묶을 수 있으며, 생략 가능하다. 다만, 중간에 띄어쓰기나 한글 및 특수문자로 이루어져 있는 경우는 반드시 따옴표로 묶어야 한다.</p>
+        <br><hr><br>
+
+        <h1>마우스 포인터</h1>
+        <p>
+            cursor : none | alias | all-scroll | auto | cell | col-resize | context-menu | copy | crosshair | default | e-resize | n-resize | s-resize | w-resize | ew-resize | ne-resize | ns-resize | nwse-resize | se-resize | sw-resize | grab | grabbing | help | move | no-drop | not-allowed | pointer | progress | row-resize | zoom-in | zoom-out | text | url(파일 경로 및 이름)<br>
+            <br>
+            ★<a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss_cursor" target="_blank">참조 페이지</a>★
+        </p>
+        <p>해당 요소에 영역에 마우스 포인터가 위치되면, 그 마우스 포인터 모양을 지정할 수 있는 속성</p>
+        <p>image로 설정할때는 width와 height로 설정된 크기보다 작게해야 image가 적용된다.</p>
+        <br><hr><br>
+
+        <h1>그림자 속성</h1>
+        <p>shadow : text-shadow, box-shadow</p>
+        <p>텍스트나 박스의 외부 그림자 또는 내부 그림자를 말하며, 크기 속성에 포함되지 않는다.</p>
+        <br><hr><br>
+
+        <h2>텍스트 그림자</h2>
+        <p>text-shadow : x-length y-length blur-length color</p>
+        <p>
+            x를 양의 값으로 입력하면 그림자의 방향은 오른쪽에 발생되며, 음의 값으로 입력하면 그림자의 방향은 왼쪽으로 발생된다.<br>
+            y를 양의 값으로 입력하면 그림자의 방향은 아래쪽에 발생되며, 음의 값으로 입력하면 그림자의 방향은 위쪽으로 발생된다.<br>
+            x y blue color 양의 여러 단계에 걸쳐 지정하면, 입체모양이 그림자가 표시된다.
+        </p>
+        <br><hr><br>
+
+        <h2>박스 그림자</h2>
+        <p>box-shadow : x-length y-length blur-length color</p>
+        <p>box-shadow : x-length y-length blur-length spread-length color</p>
+        <p>
+            x를 양의 값으로 입력하면 그림자의 방향은 오른쪽에 발생되며, 음의 값으로 입력하면 그림자의 방향은 왼쪽으로 발생된다.<br>
+            y를 양의 값으로 입력하면 그림자의 방향은 아래쪽에 발생되며, 음의 값으로 입력하면 그림자의 방향은 위쪽으로 발생된다.<br>
+            x y blue color 양의 여러 단계에 걸쳐 지정하면, 입체모양이 그림자가 표시된다.
+        </p>
+        <p>box-shadow나 text-shadow의 그림자의 양이나 blur, spread 양은 px 또는 pt 단위로 기재한다.</p>
+        <br><hr><br>
+        
+    </div>
+</body>
+</html>
